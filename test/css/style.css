@@ -1,0 +1,7 @@
+div { width: 100px; height: 100px; float: left; margin: 5px; }
+
+.opacity { opacity: 0.5; filter: alpha(opacity=50); }
+
+.gradient-vertical { background-color: #d400a4; background-repeat: repeat-x; background-image: -moz-linear-gradient(top, #ff00c6, #a90083); background-image: -ms-linear-gradient(top, #ff00c6, #a90083); background-image: -webkit-linear-gradient(top, #ff00c6, #a90083); background-image: -o-linear-gradient(top, #ff00c6, #a90083); background-image: linear-gradient(top, #ff00c6, #a90083); }
+
+.gradient-horizontal { background-color: #d400a4; background-repeat: repeat-x; background-image: -moz-linear-gradient(left, #ff00c6, #a90083); background-image: -ms-linear-gradient(left, #ff00c6, #a90083); background-image: -webkit-linear-gradient(left, #ff00c6, #a90083); background-image: -o-linear-gradient(left, #ff00c6, #a90083); background-image: linear-gradient(left, #ff00c6, #a90083); }

@@ -1,0 +1,22 @@
+@import '../mooxins';
+
+$w: 100px;
+
+div {
+	width: $w;
+	height: $w;
+	float: left;
+	margin: 5px;
+}
+
+.opacity {
+	@include opacity(0.5);
+}
+
+.gradient-vertical {
+	@include gradient-vertical(#ff00c6, #a90083);
+}
+
+.gradient-horizontal {
+	@include gradient-horizontal(#ff00c6, #a90083);
+}
