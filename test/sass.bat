@@ -1,1 +1,1 @@
-"C:\Ruby193\bin\sass" --watch scss:css --style compact --no-cache
+"C:\Ruby193\lib\ruby\gems\1.9.1\bin\sass" --watch scss:css --style compact --no-cache
