@@ -13,10 +13,14 @@ div {
 	@include opacity(0.5);
 }
 
-.gradient-vertical {
-	@include gradient-vertical(#ff00c6, #a90083);
+.test-property {
+	@include moo(transition, all 0.5s ease-in-out, webkit moz);
 }
 
-.gradient-horizontal {
-	@include gradient-horizontal(#ff00c6, #a90083);
+.test-value-many {
+	@include moobg(linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), null, webkit);
+}
+
+.clearfix {
+	@include clearfix();
 }
