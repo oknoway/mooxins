@@ -14,13 +14,30 @@ div {
 }
 
 .test-property {
-	@include moo(transition, all 0.5s ease-in-out, webkit moz);
+	@include moo(box-sizing, border-box);
 }
 
 .test-value-many {
-	@include moobg(linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), null, webkit);
+	@include moobg(linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url(example.png) center center no-repeat);
 }
+
+.test-value-many {
+	@include moobg(linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)));
+}
+
 
 .clearfix {
 	@include clearfix();
+}
+
+.test {
+	position: absolute;
+	top: 0;
+	left: 0;
+	@include moo(animation, cow 1s alternate infinite);
+}
+
+@include keyframes(cow){
+	0% {left: 0px;}
+	100% {left: 200px;}
 }

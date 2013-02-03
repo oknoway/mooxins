@@ -1,5 +1,11 @@
+$config: gradients webkit moz o,
+		 transform webkit moz ms o,
+		 transform-origin moz ms o,
+		 box-sizing webkit moz;
+
 // Prefix for property
-@mixin moo($property, $value, $prefixes: webkit moz ms o) {
+@mixin moo($property, $value) {
+	$prefixes: getPrefix($property);
 	@each $prefix in $prefixes {
 		-#{$prefix}-#{$property}: #{$value};
 	}
@@ -7,24 +13,26 @@
 }
 
 // Prefix for value
-@mixin moobg($gradients, $static: null, $prefixes: webkit moz ms o) {
-	@if $static {
-		$static: #{$static};
-	}
+@mixin moobg($gradients, $static: null) {
+	$prefixes: getPrefix(gradients);
 	@each $prefix in $prefixes {
-		$out: null;
+		$out: ();
 		@each $gradient in $gradients {
-			$gradientPrefixed: unquote('-' + $prefix + '-' + $gradient);
+			$gradientPrefixed: -#{$prefix}-#{$gradient};
 			$out: append($out, $gradientPrefixed, comma);
 		}
-		$out: join($out, $static, comma);
+		@if $static {
+			$out: join($out, #{$static}, comma);
+		}
 		background: $out;
 	}
-	$out: null;
+	$out: ();
 	@each $gradient in $gradients {
 		$out: append($out, $gradient, comma);
 	}
-	$out: join($out, $static, comma);
+	@if ($static) {
+		$out: join($out, #{$static}, comma);
+	}
 	background: $out;
 }
 
@@ -53,4 +61,21 @@
 	@-moz-keyframes $name {@content;}
 	@-o-keyframes $name {@content;}
 	@keyframes $name {@content;}
+}
+
+// Get prefixes from config
+@function getPrefix($property){
+	$prefixes: webkit moz o;
+	@each $configItem in $config {
+		$defindedProperty: nth($configItem, 1);
+		@if $defindedProperty == $property {
+			$prefixes: ();
+			@each $prefix in $configItem {
+				@if $prefix != $defindedProperty {
+					$prefixes: append($prefixes, $prefix);
+				}
+			}
+		}
+	}
+	@return $prefixes;
 }

@@ -2,10 +2,26 @@ div { width: 100px; height: 100px; float: left; margin: 5px; }
 
 .opacity { opacity: 0.5; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; }
 
-.test-property { -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out; }
+.test-property { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-.test-value-many { background: -webkit-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); }
+.test-value-many { background: -webkit-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(example.png) center center no-repeat; background: -moz-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(example.png) center center no-repeat; background: -o-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(example.png) center center no-repeat; background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url(example.png) center center no-repeat; }
+
+.test-value-many { background: -webkit-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); background: -moz-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); background: -o-linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); }
 
 .clearfix { *zoom: 1; }
 .clearfix:before, .clearfix:after { display: table; content: ""; }
 .clearfix:after { clear: both; }
+
+.test { position: absolute; top: 0; left: 0; -webkit-animation: cow 1s alternate infinite; -moz-animation: cow 1s alternate infinite; -o-animation: cow 1s alternate infinite; animation: cow 1s alternate infinite; }
+
+@-webkit-keyframes cow { 0% { left: 0px; }
+  100% { left: 200px; } }
+
+@-moz-keyframes cow { 0% { left: 0px; }
+  100% { left: 200px; } }
+
+@-o-keyframes cow { 0% { left: 0px; }
+  100% { left: 200px; } }
+
+@keyframes cow { 0% { left: 0px; }
+  100% { left: 200px; } }
